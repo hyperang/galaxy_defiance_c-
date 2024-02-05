@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3vnkwwwmptgt"]
+
+[ext_resource type="Script" path="res://player/Laser.cs" id="1_l6e0j"]
+[ext_resource type="Texture2D" uid="uid://dwhnkcq1chsvi" path="res://assets/pics/laser_small.png" id="1_qley5"]
+[ext_resource type="Script" path="res://components/MoveComponent.cs" id="3_oiu77"]
+[ext_resource type="Resource" uid="uid://bqp47la6iu5qg" path="res://player/laserMove.tres" id="3_xtc3e"]
+[ext_resource type="Script" path="res://components/ScaleComponent.cs" id="5_idcga"]
+[ext_resource type="Script" path="res://components/EffectComponent.cs" id="6_nxb0c"]
+[ext_resource type="Material" uid="uid://pbprph6katd5" path="res://player/white_flash.tres" id="7_amduf"]
+
+[node name="Laser" type="Node2D"]
+script = ExtResource("1_l6e0j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qley5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.76837e-07, 1)
+scale = Vector2(0.2, 0.5)
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("charactor")]
+script = ExtResource("3_oiu77")
+charactor = NodePath("..")
+states = ExtResource("3_xtc3e")
+charactorType = 2
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_idcga")
+sprite = NodePath("../Sprite2D")
+scaleAmount = Vector2(2, 2)
+scaleDuration = 1.0
+
+[node name="EffectComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("6_nxb0c")
+effectMaterial = ExtResource("7_amduf")
+sprite = NodePath("../Sprite2D")
+effectDuration = 0.1
