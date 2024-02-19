@@ -9,7 +9,6 @@
 script = ExtResource("1_2lc27")
 
 [node name="SpaceLayer" type="ParallaxLayer" parent="."]
-texture_repeat = 3
 
 [node name="Space" type="TextureRect" parent="SpaceLayer"]
 offset_right = 160.0

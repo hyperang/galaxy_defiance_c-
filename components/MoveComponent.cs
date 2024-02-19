@@ -1,10 +1,13 @@
 using Godot;
 using System;
 
-public enum Type
+public enum MoveType
 {
 	ship = 0x1,
-	laser = 0x2
+	laser = 0x2,
+	greenEnemy = 0x3,
+	yellowEnemy = 0x4,
+	pinkEnemy = 0x5
 }
 
 public enum MoveState
@@ -26,7 +29,7 @@ public partial class MoveComponent : Node
 	public MoveStates states;
 	
 	[Export]
-	public Type charactorType = Type.ship;
+	public MoveType charactorType = MoveType.ship;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -46,14 +49,18 @@ public partial class MoveComponent : Node
 	
 	private void move(double delta)
 	{
-		if(this.charactorType == Type.ship)
+		if(this.charactorType == MoveType.ship)
 		{
 			var inputAxis = Input.GetAxis("ui_left", "ui_right");
 			this.velocity = new Vector2(inputAxis * states.speed, 0);
 		}
-		else
+		else if(this.charactorType == MoveType.laser)
 		{
 			this.velocity = new Vector2(0, -1 * states.speed);
+		}
+		else
+		{
+			this.velocity = new Vector2(0, states.speed);
 		}
 		
 		this.charactor.Translate(new Vector2(velocity.X * (float)delta, velocity.Y * (float)delta));

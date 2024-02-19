@@ -16,6 +16,11 @@ public partial class SpawnerComponent : Node
 		defaultParent = GetTree().CurrentScene;
 	}
 	
+	public void setScene(PackedScene ps)
+	{
+		this.scene = ps;
+	}
+	
 	// Spawn an instance of the scene at a specific global position on a parent.
 	public Node spawn(Vector2 globalSpawnPosition, Node parent = null)
 	{	

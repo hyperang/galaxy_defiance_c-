@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4c4b4t6xume6"]
+
+[ext_resource type="PackedScene" uid="uid://b51g11dh2bgdu" path="res://enemies/enemy.tscn" id="1_qv1pm"]
+[ext_resource type="Texture2D" uid="uid://cxxmayd15lvbl" path="res://assets/pics/green_enemy.png" id="2_mwuo3"]
+[ext_resource type="Resource" uid="uid://bd4dwnoiwb2c8" path="res://enemies/green_enemy_move.tres" id="3_qk8ud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adan6"]
+atlas = ExtResource("2_mwuo3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1qnp"]
+atlas = ExtResource("2_mwuo3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a141q"]
+atlas = ExtResource("2_mwuo3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijjar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adan6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1qnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a141q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3va8"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p0yo7"]
+radius = 7.0
+
+[node name="GreenEnemy" instance=ExtResource("1_qv1pm")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ijjar")
+autoplay = "default"
+frame = 1
+frame_progress = 0.951813
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(0, 7.6294e-07)
+scale = Vector2(0.8, 0.8)
+
+[node name="MoveComponent" parent="." index="2"]
+states = ExtResource("3_qk8ud")
+charactorType = 3
+
+[node name="HitboxComponent" parent="." index="4"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_g3va8")
+
+[node name="HurtboxComponent" parent="." index="5"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_p0yo7")

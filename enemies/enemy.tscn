@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b51g11dh2bgdu"]
+
+[ext_resource type="Script" path="res://enemies/Enemy.cs" id="1_mmrcs"]
+[ext_resource type="Script" path="res://components/MoveComponent.cs" id="2_sm3ri"]
+[ext_resource type="Script" path="res://components/PositionClampComponent.cs" id="3_ukfyj"]
+[ext_resource type="Script" path="res://components/HitboxComponent.cs" id="4_hqo63"]
+[ext_resource type="Script" path="res://components/HurtboxComponent.cs" id="5_vqm0u"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_mmrcs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("charactor")]
+script = ExtResource("2_sm3ri")
+charactor = NodePath("..")
+
+[node name="PositionClampComponent" type="Node" parent="." node_paths=PackedStringArray("charactor")]
+script = ExtResource("3_ukfyj")
+charactor = NodePath("..")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("4_hqo63")
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+script = ExtResource("5_vqm0u")

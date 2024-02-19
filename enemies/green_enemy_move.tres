@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MoveStates" load_steps=2 format=3 uid="uid://bd4dwnoiwb2c8"]
+
+[ext_resource type="Script" path="res://components/MoveStates.cs" id="1_yrphx"]
+
+[resource]
+script = ExtResource("1_yrphx")
+speed = 20.0

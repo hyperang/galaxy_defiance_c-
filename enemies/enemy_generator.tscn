@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv35osicy1dkc"]
+
+[ext_resource type="Script" path="res://enemies/EnemyGenerator.cs" id="1_glvk1"]
+[ext_resource type="Script" path="res://components/SpawnerComponent.cs" id="1_vqeeh"]
+
+[node name="EnemyGenerator" type="Node2D"]
+script = ExtResource("1_glvk1")
+
+[node name="GreenEnemySpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="YellowEnemySpawnTimer" type="Timer" parent="."]
+
+[node name="PinkEnemySpawnTimer" type="Timer" parent="."]
+
+[node name="SpawnerComponent" type="Node" parent="."]
+script = ExtResource("1_vqeeh")
