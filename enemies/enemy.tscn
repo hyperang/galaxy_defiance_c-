@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b51g11dh2bgdu"]
+[gd_scene load_steps=7 format=3 uid="uid://b51g11dh2bgdu"]
 
 [ext_resource type="Script" path="res://enemies/Enemy.cs" id="1_mmrcs"]
 [ext_resource type="Script" path="res://components/MoveComponent.cs" id="2_sm3ri"]
 [ext_resource type="Script" path="res://components/PositionClampComponent.cs" id="3_ukfyj"]
 [ext_resource type="Script" path="res://components/HitboxComponent.cs" id="4_hqo63"]
 [ext_resource type="Script" path="res://components/HurtboxComponent.cs" id="5_vqm0u"]
+[ext_resource type="Script" path="res://components/SpawnerComponent.cs" id="6_3276a"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_mmrcs")
@@ -26,3 +27,6 @@ script = ExtResource("4_hqo63")
 
 [node name="HurtboxComponent" type="Area2D" parent="."]
 script = ExtResource("5_vqm0u")
+
+[node name="SpawnerComponent" type="Node" parent="."]
+script = ExtResource("6_3276a")

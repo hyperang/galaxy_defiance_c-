@@ -14,7 +14,7 @@ public partial class HitboxComponent : Area2D
 	public override void _Ready()
 	{
 		// Connect on area entered to our hurtbox entered function.
-		this.AreaEntered += onHurtboxEntered;
+		AreaEntered += onHurtboxEntered;
 	}
 	
 	public void onHurtboxEntered(Area2D hurtbox)

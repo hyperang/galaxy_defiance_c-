@@ -21,8 +21,8 @@ public partial class PositionClampComponent : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		var gPos = this.charactor.GlobalPosition;
+		var gPos = charactor.GlobalPosition;
 		Vector2 cPos = new Vector2(Mathf.Clamp(gPos.X, leftBorder + margin, rightBorder - margin), gPos.Y);
-		this.charactor.GlobalPosition = cPos;
+		charactor.GlobalPosition = cPos;
 	}
 }

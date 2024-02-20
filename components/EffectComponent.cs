@@ -26,13 +26,13 @@ public partial class EffectComponent : Node
 		AddChild(timer);
 		
 		// Store the original sprite material.
-		originalMaterial = this.sprite.@Material;
+		originalMaterial = sprite.@Material;
 	}
 
 	public async void effectPlay()
 	{
 		// Set the sprite's material to the effect material.
-		this.sprite.@Material = effectMaterial;
+		sprite.@Material = effectMaterial;
 		
 		// Start the timer (passing in the flash duration)
 		timer.Start(effectDuration);
@@ -41,6 +41,6 @@ public partial class EffectComponent : Node
 		await ToSignal(timer, "timeout");
 		
 		// Set the sprite's material back to the original material.
-		this.sprite.@Material = originalMaterial;
+		sprite.@Material = originalMaterial;
 	}
 }

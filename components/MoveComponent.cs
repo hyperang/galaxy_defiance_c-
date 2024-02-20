@@ -49,30 +49,30 @@ public partial class MoveComponent : Node
 	
 	private void move(double delta)
 	{
-		if(this.charactorType == MoveType.ship)
+		if(charactorType == MoveType.ship)
 		{
 			var inputAxis = Input.GetAxis("ui_left", "ui_right");
-			this.velocity = new Vector2(inputAxis * states.speed, 0);
+			velocity = new Vector2(inputAxis * states.speed, 0);
 		}
-		else if(this.charactorType == MoveType.laser)
+		else if(charactorType == MoveType.laser)
 		{
-			this.velocity = new Vector2(0, -1 * states.speed);
+			velocity = new Vector2(0, -1 * states.speed);
 		}
 		else
 		{
-			this.velocity = new Vector2(0, states.speed);
+			velocity = new Vector2(0, states.speed);
 		}
 		
-		this.charactor.Translate(new Vector2(velocity.X * (float)delta, velocity.Y * (float)delta));
+		charactor.Translate(new Vector2(velocity.X * (float)delta, velocity.Y * (float)delta));
 	}
 	
 	public MoveState getMoveState()
 	{
-		if(this.velocity.X < 0)
+		if(velocity.X < 0)
 		{
 			return MoveState.left;
 		}
-		else if(this.velocity.X > 0)
+		else if(velocity.X > 0)
 		{
 			return MoveState.right;
 		}

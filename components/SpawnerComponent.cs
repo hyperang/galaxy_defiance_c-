@@ -18,7 +18,7 @@ public partial class SpawnerComponent : Node
 	
 	public void setScene(PackedScene ps)
 	{
-		this.scene = ps;
+		scene = ps;
 	}
 	
 	// Spawn an instance of the scene at a specific global position on a parent.

@@ -30,7 +30,7 @@ public partial class EnemyGenerator : Node2D
 		var random = new RandomNumberGenerator();
 		
 		enemySpawner.setScene(enemyScene);
-		enemySpawner.spawn(new Vector2((float)random.RandiRange(margin, screenWidth - margin), -14));
+		enemySpawner.spawn(new Vector2(random.RandiRange(margin, screenWidth - margin), -14));
 		timer.Start();
 	}
 }
